@@ -4,14 +4,42 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-react';
+import { BookOpen, Folder, LayoutGrid, Menu } from 'lucide-react';
 import AppLogo from './app-logo';
 
-const mainNavItems: NavItem[] = [
+// const mainNavItems: NavItem[] = [
+//     {
+//         title: 'Dashboard',
+//         href: '/dashboard',
+//         icon: LayoutGrid,
+//     },
+// ];
+
+const groupedNavItems = [
     {
-        title: 'Dashboard',
-        href: '/dashboard',
-        icon: LayoutGrid,
+        label: 'Main',
+        items: [
+            {
+                title: 'Dashboard',
+                href: '/dashboard',
+                icon: LayoutGrid,
+            },
+        ],
+    },
+    {
+        label: 'Master Data',
+        items: [
+            {
+                title: 'Companies',
+                href: '#',
+                icon: Menu,
+            },
+            {
+                title: 'Integrators',
+                href: '#',
+                icon: Menu,
+            },
+        ],
     },
 ];
 
@@ -44,7 +72,8 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
-                <NavMain items={mainNavItems} />
+                {/* <NavMain items={mainNavItems} /> */}
+                <NavMain groups={groupedNavItems} />
             </SidebarContent>
 
             <SidebarFooter>
