@@ -11,17 +11,20 @@ export interface BreadcrumbItem {
 }
 
 export interface NavGroup {
-    title: string;
-    items: NavItem[];
+    label: string;
+    items: MainNavItem[];
 }
 
 export interface NavItem {
     title: string;
-    href: string;
+    href?: string;
     icon?: LucideIcon | null;
-    isActive?: boolean;
 }
 
+export interface MainNavItem extends NavItem {
+    items?: MainNavItem[];
+    defaultOpen?: boolean;
+}
 export interface SharedData {
     name: string;
     quote: { message: string; author: string };

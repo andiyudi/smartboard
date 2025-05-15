@@ -4,16 +4,8 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid, Menu } from 'lucide-react';
+import { BookOpen, Folder, LayoutGrid, Menu, LucideBanknote } from 'lucide-react';
 import AppLogo from './app-logo';
-
-// const mainNavItems: NavItem[] = [
-//     {
-//         title: 'Dashboard',
-//         href: '/dashboard',
-//         icon: LayoutGrid,
-//     },
-// ];
 
 const groupedNavItems = [
     {
@@ -38,6 +30,28 @@ const groupedNavItems = [
                 title: 'Integrators',
                 href: '#',
                 icon: Menu,
+            },
+        ],
+    },
+    {
+        label: 'Transactions',
+        items: [
+            {
+                title: 'Monitoring',
+                icon: LucideBanknote,
+                defaultOpen: true,
+                items: [
+                    { title: 'eToll', href: '#' },
+                    { title: 'Settlement', href: '#' },
+                ],
+            },
+            {
+                title: 'Data RC',
+                icon: LucideBanknote,
+                items: [
+                    { title: 'Upload File', href: '#' },
+                    { title: 'Delete Data', href: '#' },
+                ],
             },
         ],
     },
@@ -72,7 +86,6 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
-                {/* <NavMain items={mainNavItems} /> */}
                 <NavMain groups={groupedNavItems} />
             </SidebarContent>
 
